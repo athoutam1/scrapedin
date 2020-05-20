@@ -1,174 +1,192 @@
-const alternativeProfileSelector = '.core-rail > *:first-child section >'
+const alternativeProfileSelector = ".core-rail > *:first-child section >";
 
 module.exports = {
   profileLegacy: {
-    selector: '.pv-content .pv-top-card-section',
+    selector: ".pv-content .pv-top-card-section",
     fields: {
       name: `.pv-top-card-section__name`,
       headline: `.pv-top-card-section__headline`,
       location: `.pv-top-card-section__location`,
-      connections: `.pv-top-card-v2-section__connections`
-    }
+      connections: `.pv-top-card-v2-section__connections`,
+    },
   },
   profileAlternative: {
-    selector: '.pv-content',
+    selector: ".pv-content",
     fields: {
       name: `${alternativeProfileSelector} div:last-child > div:nth-child(2) > div:first-child ul:first-child > li:first-child`,
       headline: `${alternativeProfileSelector} div:last-child h2`,
       imageurl: {
-		  selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
-		  attribute: 'src'
-	  },
-	  location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
-      connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
-    }
+        selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
+        attribute: "src",
+      },
+      location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
+      connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`,
+    },
   },
   aboutLegacy: {
-    selector: '.pv-top-card-section__summary',
+    selector: ".pv-top-card-section__summary",
     fields: {
-      text: '.pv-top-card-section__summary-text'
-    }
+      text: ".pv-top-card-section__summary-text",
+    },
   },
   aboutAlternative: {
-    selector: '.pv-about-section',
+    selector: ".pv-about-section",
     fields: {
-      text: 'p'
-    }
+      text: "p",
+    },
   },
   positions: {
-    selector: 'section[id=experience-section] li.pv-profile-section__list-item',
+    selector: "section[id=experience-section] li.pv-profile-section__list-item",
     fields: {
-      title: 'h3',
+      title: "h3",
+      imageURL: {
+        selector: "img",
+        attribute: "src",
+      },
       link: {
-        selector: 'a',
-        attribute: 'href',
+        selector: "a",
+        attribute: "href",
       },
       url: {
-        selector: 'a',
-        attribute: 'href'
+        selector: "a",
+        attribute: "href",
       },
-      companyName: '.pv-entity__secondary-title',
-      location: '.pv-entity__location span:last-child',
-      description: '.pv-entity__description',
-      date1: '.pv-entity__date-range span:last-child',
-      date2: '.pv-entity__bullet-item-v2',
+      companyName: ".pv-entity__secondary-title",
+      location: ".pv-entity__location span:last-child",
+      description: ".pv-entity__description",
+      date1: ".pv-entity__date-range span:last-child",
+      date2: ".pv-entity__bullet-item-v2",
       roles: {
-        selector: '.pv-entity__role-details',
+        selector: ".pv-entity__role-details",
         hasChildrenFields: true,
         fields: {
-          title: 'h3 span:last-child',
-          description: '.pv-entity__description',
-          date1: '.pv-entity__date-range span:last-child',
-          date2: '.pv-entity__bullet-item-v2',
-          location: '.pv-entity__location span:last-child'
-        }
-      }
-    }
+          title: "h3 span:last-child",
+          description: ".pv-entity__description",
+          date1: ".pv-entity__date-range span:last-child",
+          date2: ".pv-entity__bullet-item-v2",
+          location: ".pv-entity__location span:last-child",
+        },
+      },
+    },
   },
   educations: {
-    selector: 'section[id=education-section] li',
+    selector: "section[id=education-section] li",
     fields: {
-      title: 'h3',
-      degree: 'span[class=pv-entity__comma-item]',
+      title: "h3",
+      degree: "span[class=pv-entity__comma-item]",
       url: {
-        selector: 'a',
-        attribute: 'href'
+        selector: "a",
+        attribute: "href",
       },
-	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
-      date1: '.pv-entity__dates time:nth-child(1)',
-      date2: '.pv-entity__dates time:nth-child(2)'
-    }
+      fieldOfStudy: "p.pv-entity__fos span:nth-child(2)",
+      date1: ".pv-entity__dates time:nth-child(1)",
+      date2: ".pv-entity__dates time:nth-child(2)",
+    },
+  },
+  certificates: {
+    selector: "section[id=certifications-section] li",
+    fields: {
+      title: "h3",
+      issuer: "p[class=t-14] > span:nth-child(2)",
+      url: {
+        selector: "a",
+        attribute: "href",
+      },
+      // fieldOfStudy: "p.pv-entity__fos span:nth-child(2)",
+      // date1: ".pv-entity__dates time:nth-child(1)",
+      // date2: ".pv-entity__dates time:nth-child(2)",
+    },
   },
   skills: {
-    selector: '.pv-skill-category-entity__skill-wrapper',
+    selector: ".pv-skill-category-entity__skill-wrapper",
     fields: {
-      title: '.pv-skill-category-entity__name-text',
-      count: '.pv-skill-category-entity__endorsement-count'
-    }
+      title: ".pv-skill-category-entity__name-text",
+      count: ".pv-skill-category-entity__endorsement-count",
+    },
   },
   recommendationsCount: {
-    selector: '.recommendations-inlining',
+    selector: ".recommendations-inlining",
     fields: {
-      received: 'artdeco-tab:nth-child(1)',
-      given: 'artdeco-tab:nth-child(2)'
-    }
+      received: "artdeco-tab:nth-child(1)",
+      given: "artdeco-tab:nth-child(2)",
+    },
   },
   recommendationsReceived: {
-    selector: 'artdeco-tabpanel[aria-hidden=false] li.pv-recommendation-entity',
+    selector: "artdeco-tabpanel[aria-hidden=false] li.pv-recommendation-entity",
     fields: {
       user: {
-        selector: '.pv-recommendation-entity__member',
-        attribute: 'href'
+        selector: ".pv-recommendation-entity__member",
+        attribute: "href",
       },
-      text: 'blockquote.pv-recommendation-entity__text'
-    }
+      text: "blockquote.pv-recommendation-entity__text",
+    },
   },
   recommendationsGiven: {
-    selector: 'artdeco-tabpanel[aria-hidden=true] li.pv-recommendation-entity',
+    selector: "artdeco-tabpanel[aria-hidden=true] li.pv-recommendation-entity",
     fields: {
       user: {
-        selector: '.pv-recommendation-entity__member',
-        attribute: 'href'
+        selector: ".pv-recommendation-entity__member",
+        attribute: "href",
       },
-      text: 'blockquote.pv-recommendation-entity__text'
-    }
+      text: "blockquote.pv-recommendation-entity__text",
+    },
   },
   accomplishments: {
-    selector: '.pv-accomplishments-section',
+    selector: ".pv-accomplishments-section",
     fields: {
-      count: 'h3 span:last-child',
-      title: '.pv-accomplishments-block__title',
+      count: "h3 span:last-child",
+      title: ".pv-accomplishments-block__title",
       items: {
-        selector: 'li',
-        isMultipleFields: true
-      }
-    }
+        selector: "li",
+        isMultipleFields: true,
+      },
+    },
   },
   peopleAlsoViewed: {
-    selector: 'li.pv-browsemap-section__member-container',
+    selector: "li.pv-browsemap-section__member-container",
     fields: {
       user: {
-        selector: 'a',
-        attribute: 'href'
+        selector: "a",
+        attribute: "href",
       },
-      text: 'p'
-    }
+      text: "p",
+    },
   },
   volunteerExperience: {
-    selector: 'section.volunteering-section li',
+    selector: "section.volunteering-section li",
     fields: {
-      title: 'h3',
-      experience: 'span[class=pv-entity__secondary-title]',
-      location: '.pv-entity__location span:nth-child(2)',
-      description: '.pv-volunteer-causes',
-      date1: '.pv-entity__date-range span:nth-child(2)',
-      date2: '.pv-entity__bullet-item'
-    }
+      title: "h3",
+      experience: "span[class=pv-entity__secondary-title]",
+      location: ".pv-entity__location span:nth-child(2)",
+      description: ".pv-volunteer-causes",
+      date1: ".pv-entity__date-range span:nth-child(2)",
+      date2: ".pv-entity__bullet-item",
+    },
   },
   courses: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: "li.pv-accomplishment-entity",
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      year: '.pv-accomplishment-entity__course-number'
-    }
+      name: ".pv-accomplishment-entity__title",
+      year: ".pv-accomplishment-entity__course-number",
+    },
   },
   languages: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: "li.pv-accomplishment-entity",
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      proficiency: '.pv-accomplishment-entity__proficiency',
-    }
+      name: ".pv-accomplishment-entity__title",
+      proficiency: ".pv-accomplishment-entity__proficiency",
+    },
   },
   projects: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: "li.pv-accomplishment-entity",
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      date: '.pv-accomplishment-entity__date',
-      description: '.pv-accomplishment-entity__description',
+      name: ".pv-accomplishment-entity__title",
+      date: ".pv-accomplishment-entity__date",
+      description: ".pv-accomplishment-entity__description",
       link: {
-        selector: '.pv-accomplishment-entity__external-source',
-        attribute: 'href'
-      }
-    }
-  }
-}
+        selector: ".pv-accomplishment-entity__external-source",
+        attribute: "href",
+      },
+    },
+  },
+};
